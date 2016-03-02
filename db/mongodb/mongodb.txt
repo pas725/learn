@@ -28,7 +28,7 @@
 		: use <dbname>
 
 	2. Check current DB :
-		: b
+		: db
 
 	3. List all DB's
 		: show dbs
@@ -52,3 +52,6 @@
 
 		a. Insert Document:
 			: db.COLLECTION_NAME.insert({ name : 'john'})
+
+		b. Find Document :
+			: db.mycol.find().pretty() -> Display all results of Document <mycol>
