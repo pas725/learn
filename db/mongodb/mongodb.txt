@@ -55,3 +55,36 @@
 
 		b. Find Document :
 			: db.mycol.find().pretty() -> Display all results of Document <mycol>
+
+
+		Operation 			Syntax 					Example 											RDBMS Equivalent
+		------------------------------------------------------------------------------------------------------------------
+		Equality 			{<key>:<value>} 		db.mycol.find({"by":"tutorials point"}).pretty() 	where by = 'tutorials point'
+		Less Than 			{<key>:{$lt:<value>}} 	db.mycol.find({"likes":{$lt:50}}).pretty() 			where likes < 50
+		Less Than Equals 	{<key>:{$lte:<value>}} 	db.mycol.find({"likes":{$lte:50}}).pretty() 		where likes <= 50
+		Greater Than 		{<key>:{$gt:<value>}} 	db.mycol.find({"likes":{$gt:50}}).pretty() 			where likes > 50
+		Greater Than Equals {<key>:{$gte:<value>}} 	db.mycol.find({"likes":{$gte:50}}).pretty() 		where likes >= 50
+		Not Equals 			{<key>:{$ne:<value>}} 	db.mycol.find({"likes":{$ne:50}}).pretty() 			where likes != 50
+
+
+			b.1. AND in MongoDB :
+					Separate kyes by ','
+				: db.mycol.find({key1:value1, key2:value2}).pretty()
+				e.g : db.mycol.find({"by":"tutorials point","title": "MongoDB Overview"}).pretty()
+
+			b.2. OR in MongoDB :
+
+				: db.mycol.find(
+					   {
+					      $or: [
+					         {key1: value1}, {key2:value2}
+					      ]
+					   }
+				  ).pretty()
+
+			b.3. Using AND and OR together :
+
+				RDBMS : 'where likes>10 AND (by = 'tutorials point' OR title = 'MongoDB Overview')'
+
+				Mongo : db.mycol.find({"likes": {$gt:10}, $or: [{"by": "tutorials point"},
+   						{"title": "MongoDB Overview"}]}).pretty()
