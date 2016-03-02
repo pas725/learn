@@ -1,0 +1,54 @@
+
+///////////  MongoDB in Short //////////////////////
+
+
+	RDBMS			MONGODB
+
+	Table			Collection
+	Row/Tuple		Document
+	Column			Field
+	Table Join		Embedded Documents
+	Primary Key		Primary Key (Default key _id provided by mongodb itself)
+
+
+	Downloaded : mongodb-linux-x86_64-2.6.11.tgz (116 MB)
+
+	START MONGODB ON LOCAL MACHINE : (Used ubuntu)
+	---------------------------------------------------
+	1.Run : sudo ./mongod
+	2.Open new tab : Run : ./mongo
+		It will start mongodb.
+
+
+
+	MONGO CONSOLE COMMANDS :
+	---------------------------------------------------
+
+	1. Switch to existing DB if available, else create new one
+		: use <dbname>
+
+	2. Check current DB :
+		: b
+
+	3. List all DB's
+		: show dbs
+
+	4. Drop DB , Drops current DB
+		: db.dropDatabase()
+
+	5. Create new collection
+		: db.createCollection("mycollection")
+
+		List All collections in DB
+		: show collections
+
+	6. Drop collection
+		: db.<collection-name>.drop() -> Return 'true' on success
+
+
+	7. CRUD Operations :
+
+		: db.COLLECTION_NAME.insert(document)
+
+		a. Insert Document:
+			: db.COLLECTION_NAME.insert({ name : 'john'})
