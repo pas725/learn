@@ -12,6 +12,7 @@
 
 
 	Downloaded : mongodb-linux-x86_64-2.6.11.tgz (116 MB)
+	Online reading : http://www.tutorialspoint.com/mongodb/mongodb_projection.htm
 
 	START MONGODB ON LOCAL MACHINE : (Used ubuntu)
 	---------------------------------------------------
@@ -88,3 +89,52 @@
 
 				Mongo : db.mycol.find({"likes": {$gt:10}, $or: [{"by": "tutorials point"},
    						{"title": "MongoDB Overview"}]}).pretty()
+
+   			b.4. Projection : select only wanted values :
+
+   				Set key = 1 to display , 0 to hide
+   				Syntax : db.COLLECTION_NAME.find({},{KEY:1})
+
+   				eg : db.mycol.find({},{"title":1,_id:0}) -> 
+
+
+
+   		c. Delete Document : 
+   			: db.COLLECTION_NAME.remove(DELLETION_CRITTERIA)
+
+   			Remove only one record (First): db.COLLECTION_NAME.remove(DELLETION_CRITTERIA,1)
+
+   				eg: db.mycol.remove({'title':'MongoDB Overview'})
+
+   		d. Update Document :
+
+   			UPDATE :
+   			---------
+   			MongoDB's update() and save() methods are used to update document into a collection. The update() method update values in the existing document while the save() method replaces the existing document with the document passed in save() method.
+
+   			: db.s1.update({id : '105'},{$set:{'key' : 'new val 1'}})
+
+   			Update multiple records : db.s1.update({id : '105'},{$set:{'key' : 'new val 1'}},{multi:true}) 
+
+   			SAVE :
+   			---------
+   			The save() method replaces the existing document with the new document passed in save() method
+
+   			Syntax : db.COLLECTION_NAME.save({_id:ObjectId(),NEW_DATA})
+
+   	8. Limiting Document results :
+
+   		Syntax : db.COLLECTION_NAME.find().limit(NUMBER)
+
+   		--> Limit and skip specified records: 
+   		Syntax : db.COLLECTION_NAME.find().limit(NUMBER).skip(NUMBER) 
+
+   		--> Display Only fourth record
+   		Eg : db.s1.find({}).pretty().limit(1).skip(3) 
+
+   	9. Sort records : 
+
+   		Syntax : db.COLLECTION_NAME.find().sort({KEY:1})
+   			KEY = 1 Ascending , KEY = -1 Descending
+
+   		Eg : db.mycol.find({},{"title":1,_id:0}).sort({"title":-1})
