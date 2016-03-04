@@ -1,0 +1,13 @@
+
+
+
+
+
+	Ubuntu :
+	-------------------------------
+	
+		1. Error --> E: Encountered a section with no Package: header 
+		Reason : 
+		Solution :
+			> sudo rm /var/lib/apt/lists/* -vf
+			> sudo apt-get update
