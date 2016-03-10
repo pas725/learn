@@ -1,0 +1,36 @@
+
+
+///////////  Configure FTP Server //////////////////////
+
+
+
+	INSTALL VSFTP : (Used ubuntu)
+	---------------------------------------------------
+		1. Update list of packages
+			: apt-get update
+
+		2. Install 
+			: apt-get -y install vsftpd
+
+		3. Edit : /etc/vsftpd.conf 
+	
+
+			a.Disallow anonymous, unidentified users to access files via FTP; change the anonymous_enable setting to NO:
+
+				anonymous_enable=NO
+
+			b.Allow local uses to login by changing the local_enable setting to YES:
+
+				local_enable=YES
+
+			c.If you want local user to be able to write to a directory, then change the write_enable setting to YES:
+
+				write_enable=YES
+
+			d.Local users will be ‘chroot jailed’ and they will be denied access to any other part of the server; change the chroot_local_user setting to YES:
+
+				chroot_local_user=YES
+
+			e. Specify anonymous user's directory :
+
+				anon_root=/home/root1/ftp
