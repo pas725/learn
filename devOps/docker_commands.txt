@@ -1,0 +1,34 @@
+
+
+
+	DOCKER COMMANDS :
+	-------------------------------------
+
+		1. Remove docker image
+			- docker rmi <imagename/id>
+
+		2. List running containers
+			- docker ps [Optional -a]
+
+			STOP container
+			- docker stop <name / list of container Ids separated by space>
+
+			REMOVE containers
+			- docker rm <name / list of container Ids separated by space>
+
+		3. Build image from dockerfile (Dockerfile needs to be in current path)
+			- sudo docker build -t <image-name> .
+
+		4. Connect to Postgres DB non-interactively & execute query
+			- PGPASSWORD=postgres psql -h localhost -p 49678 -d sf-connector -U postgres -c "SELECT tablename FROM pg_tables WHERE schemaname='public' ORDER BY tablename"
+
+		5. Run a container  
+			- docker run -d --name web training/webapp
+			- [-d] : run container in backgound , detached mode
+			- [--name] Provide name to container, instead of assigning random image-name
+
+		6. Enter into Running Docker container
+			- docker exec -it [container-id] bash
+
+		7. View logs of running Docker container
+			- docker logs [container-id]

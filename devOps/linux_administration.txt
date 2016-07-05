@@ -1,0 +1,24 @@
+ 
+
+
+	LINUX ADMINISTRATION COMMANDS :
+	-----------------------------------------------------
+
+	1.  List all installed packages in system
+		- dpkg --get-selections
+
+
+	2. Search package in apt repository
+		- apt-cache search <pkg-name>
+
+	3. Check all available service's status 
+		- service --status-all
+
+	4. Start/Stop service, check status of service
+		- service <srvice-name> start/stop/status
+
+	5. Sync up repos with remote machine
+		- rsync -a root1@10.55.68.25:~/Project/JIF/jive-lms/code/lms-bridge /root/JIF/lms-bridge/
+
+	6. Copy files/folders from remote machine
+		- scp -r root1@10.55.68.25:~/Project/JIF/jive-lms/code/lms-bridge /root/JIF/lms-bridge/
