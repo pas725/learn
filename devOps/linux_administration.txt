@@ -22,3 +22,14 @@
 
 	6. Copy files/folders from remote machine
 		- scp -r root1@10.55.68.25:~/Project/JIF/jive-lms/code/lms-bridge /root/JIF/lms-bridge/
+
+	7. IO redirection meaning of : $: <command> > /dev/null 2>&1
+		- 2 refers to the second file descriptor of the process, i.e. stderr.
+		  > means redirection.
+
+    	  &1 means the target of the redirection should be the same location as the first file descriptor, i.e. stdout.
+
+	      So this command first redirects stdout to /dev/null and then redirects stderr there as well. This effectively silences all output (regular or error) from the wget command.
+
+	 8. Meaning of : /dev/null
+		-The null device is typically used for disposing of unwanted output streams of a process, or as a convenient empty file for input streams. This is usually done by redirection. The /dev/null device is a special file, not a directory, so one cannot move a whole file or directory into it with the Unix mv command.
