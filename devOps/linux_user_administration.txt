@@ -1,0 +1,28 @@
+
+
+	LINUX USER ADMINISTRATION COMMANDS :
+	-----------------------------------------------------
+
+	* ADD, REMOVE, MODIFY groups & users
+	* GROUPS (Collection of people)
+	* PERMISSIONS (File permissions/modes)
+
+	* Account attributes (User) :
+		- User name
+		- Default shell
+		- Default group
+		- Expiration date & more
+
+	1.  List all groups 
+		- less /etc/passwd
+
+	2. View default group,shells etc
+		- useradd -D
+
+	3. Create user
+		- useradd <name> 	//
+		eg : useradd -d /home/user1 -m -s /bin/bash -G devs user1
+			-d : default home dir
+			-m : create home dir if not
+			-s : default shell
+			-G : Group into which user belongs

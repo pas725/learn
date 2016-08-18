@@ -32,3 +32,14 @@
 
 		7. View logs of running Docker container
 			- docker logs [container-id]
+
+		8. VOLUMES : Mount volume into container from host machine
+			- docker run -it -v /tmp{Host machine path}:/tmp{inside container} ubuntu bash
+
+			There are 2 ways to mount volumes
+				- Sharing data between Host and container
+				- Creating Data-container & use this container as storage in other containers
+					eg : 1. create data container
+							* docker create -v /tmp --name datacontainer ubuntu
+						 2. Create new container and mount volume from data container
+						 	* docker run -t -i --volumes-from datacontainer ubuntu /bin/bash
