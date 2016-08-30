@@ -23,11 +23,15 @@
 			- PGPASSWORD=postgres psql -h localhost -p 49678 -d sf-connector -U postgres -c "SELECT tablename FROM pg_tables WHERE schemaname='public' ORDER BY tablename"
 
 		5. Run a container  
-			- docker run -d --name web training/webapp
+			- docker run -d --name test debian:latest
+				This example runs a container named test using the debian:latest image. 
+
+			Options :
 			- [-d] : run container in backgound , detached mode
 			- [--name] Provide name to container, instead of assigning random image-name
+			- [-p] : Specify port mapping
 
-		6. Enter into Running Docker container
+		6. Entering into Running Docker container
 			- docker exec -it [container-id] bash
 
 		7. View logs of running Docker container
@@ -43,3 +47,14 @@
 							* docker create -v /tmp --name datacontainer ubuntu
 						 2. Create new container and mount volume from data container
 						 	* docker run -t -i --volumes-from datacontainer ubuntu /bin/bash
+
+
+		9. Delete dangling images
+			$ docker rmi $(docker images -q -f dangling=true)
+
+		10. Kill all running containers
+			$ docker kill $(docker ps -q)
+
+		11. Remove all stopped containers
+			$ docker rm $(docker ps -a -q)
+			

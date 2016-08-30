@@ -31,5 +31,11 @@
 
 	      So this command first redirects stdout to /dev/null and then redirects stderr there as well. This effectively silences all output (regular or error) from the wget command.
 
-	 8. Meaning of : /dev/null
+	8. Meaning of : /dev/null
 		-The null device is typically used for disposing of unwanted output streams of a process, or as a convenient empty file for input streams. This is usually done by redirection. The /dev/null device is a special file, not a directory, so one cannot move a whole file or directory into it with the Unix mv command.
+
+	9. List all man pages of commands
+		> man -k .
+
+	10. Find man page location of particular command
+		> man --where --all <command>
